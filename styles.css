@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.wavy-circle {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.wavy-circle::before,
+.wavy-circle::after {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 600px;
+    height: 600px;
+    background-image: linear-gradient(45deg, #ff00cc, #3333ff);
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wavy-circle::after {
+    top: -100px;
+    background-image: linear-gradient(45deg, #ff9900, #ff00cc);
+    animation: wave 12s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite reverse;
+}
+
+@keyframes wave {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
